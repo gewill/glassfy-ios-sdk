@@ -13,13 +13,13 @@
 #endif
 NS_ASSUME_NONNULL_BEGIN
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE & !TARGET_OS_TV
 @class GYPaywallViewController;
 #endif
 
 NS_SWIFT_NAME(Glassfy.Paywall)
 @interface GYPaywall : NSObject
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE & !TARGET_OS_TV
 - (void)setContentAvailableHandler:(GYPaywallViewControllerCompletion)handler;
 - (GYPaywallViewController *)viewController;
 #endif

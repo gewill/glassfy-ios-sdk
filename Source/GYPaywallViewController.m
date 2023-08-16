@@ -6,7 +6,6 @@
 //
 
 #import <StoreKit/StoreKit.h>
-#import <WebKit/WebKit.h>
 #import "GYPaywallViewController+Private.h"
 #import "Glassfy+Private.h"
 #import "GYAPIPaywallResponse.h"
@@ -17,7 +16,8 @@
 #import "GYPaywall+Private.h"
 #import "GYSysInfo.h"
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE & !TARGET_OS_TV
+#import <WebKit/WebKit.h>
 
 #define kMessageHandlerName @"GYMessageHandler"
 

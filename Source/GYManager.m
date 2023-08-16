@@ -353,7 +353,7 @@
 
 - (void)paywallWithRemoteConfigurationId:(NSString *)remoteConfigId completion:(GYPaywallCompletion)block
 {
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE & !TARGET_OS_TV
     NSString *lang = [[[NSBundle mainBundle] preferredLocalizations] firstObject];
     [self.api getPaywall:remoteConfigId locale:lang completion:^(GYAPIPaywallResponse *res, NSError *paywallErr) {
         GYPaywall *paywall;
@@ -397,7 +397,7 @@
                                           awaitLoading:(BOOL)awaitLoading
                                             completion:(GYPaywallViewControllerCompletion)block
 {
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE & !TARGET_OS_TV
     [self paywallWithRemoteConfigurationId:remoteConfigId completion:^(GYPaywall * _Nullable somePaywall, NSError * _Nullable error) {
         if (!somePaywall || error) {
             block(nil, error);

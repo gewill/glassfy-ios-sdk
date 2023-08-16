@@ -31,7 +31,7 @@
 }
 
 + (NSString *)uiStyle {
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE & !TARGET_OS_TV
     if (@available(iOS 13.0, *)) {
         if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
             return @"dark";

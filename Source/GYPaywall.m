@@ -57,7 +57,7 @@
                     if (err) {
                         completion(nil, err);
                     } else {
-                        #if TARGET_OS_IPHONE
+                        #if TARGET_OS_IPHONE & !TARGET_OS_TV
                         completion([self viewController], err);
                         #else
                         completion(nil, GYError.notSupported);
@@ -73,7 +73,7 @@
 
 @implementation GYPaywall
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE & !TARGET_OS_TV
 - (void)setContentAvailableHandler:(GYPaywallViewControllerCompletion)handler
 {
     self->_contentAvailableHandler = handler;

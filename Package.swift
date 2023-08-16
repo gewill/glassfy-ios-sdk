@@ -6,6 +6,7 @@ let package = Package(
     name: "Glassfy",
     platforms: [
         .iOS(.v10),
+        .tvOS(.v10),
         .macOS(.v10_15)
     ],
     products: [
